@@ -1,0 +1,39 @@
+.sidebar {
+  background: #616169;
+  position: fixed;
+  width: 250px;
+  margin-top: 70px;
+  left: 0;
+  height: 100%;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.profile-image {
+  border-radius: 50%;
+  height: 75px;
+}
+
+.profile-name {
+  color: #ccc;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background-color;
+}
+
+.sidebar a:hover {
+  background-color: #4c4c6d;
+}
