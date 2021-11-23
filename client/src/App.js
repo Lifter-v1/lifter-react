@@ -49,6 +49,12 @@ const theme = {
 	borderRadius: {
 		br50: "50px",
 	},
+	padding: {
+		p2: "2em",
+	},
+	thickness: {
+		thick2: "2.5px",
+	}
 };
 
 function App() {
@@ -61,7 +67,7 @@ function App() {
 				{!isLogged ? (
 					<>
 						<Route path="/" element={<Home />} />
-						<Route path="/register" element={<Register />} />
+						<Route path="/register/:id" element={<Register />} />
 					</>
 				) : (
 					<></>
@@ -72,3 +78,4 @@ function App() {
 }
 
 export default App;
+

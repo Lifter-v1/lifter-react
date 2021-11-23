@@ -7,6 +7,9 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 		fontSize: { lg10, md5, sm1 },
 		opacity: { op70 },
 		borderRadius: { br50 },
+		padding: { p2 },
+		thickness: { thick2 },
+		
 	} = theme;
 
 	return css`

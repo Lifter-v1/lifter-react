@@ -19,21 +19,21 @@ import homesection1 from "../../images/home/homesection1.mp4";
  7. To destrcuture theme: https://stackoverflow.com/questions/41794086/es6-destructuring-within-a-return-statement
  */
 
-//  ! ISSUES
 /**
  * ! ISSUES
  * 1. - [ ] navbar
  * 2. - [ ] snap
  * 3. - [ ] ALIGNEMEENNTTTT
  * HEELLPPP
- * 
+ *
  */
 
-function Home() {
+function Home({match}) {
+	console.log("ze props", match);
 	// ========================CAROUSEL SECTION 2 =======================//
 	const slides = [
-		{ h1: "EASY", p: "Just swipe to find workout buddies", img: slides1, bg: "bg-gradient" },
-		{ h1: "ELITE", p: "Exclusive community to motivate one another", img: slides2, bg: "bg-black" },
+		{ h1: "EASY", p: "Just swipe to find workout buddies", img: slides1, bg: "gradient" },
+		{ h1: "ELITE", p: "Exclusive community to motivate one another", img: slides2, bg: "black" },
 	];
 
 	// ========================Navbar change upon scrolling =======================//
@@ -103,6 +103,8 @@ const destructureTheme = ({
 	fontSize: { lg10, md5, sm1 },
 	opacity: { op70 },
 	borderRadius: { br50 },
+	padding: { p2 },
+	thickness: { thick2 },
 }) => ({
 	black,
 	white,
@@ -117,17 +119,18 @@ const destructureTheme = ({
 	sm1,
 	op70,
 	br50,
+	p2,
+	thick2,
 });
 
 // ================================== HERO SECTION =============================//
-
 
 const HeroSection = styled.section(({ theme }) => {
 	const t = destructureTheme(theme);
 
 	return css`
 		position: relative;
-		
+
 		video {
 			position: absolute;
 			background-color: ${t.black.DEFAULT};
@@ -135,7 +138,7 @@ const HeroSection = styled.section(({ theme }) => {
 			overflow: hidden;
 			object-fit: cover;
 			max-height: 100vh;
-			min-width:100vw;
+			min-width: 100vw;
 		}
 
 		.bg-filter {
@@ -148,7 +151,7 @@ const HeroSection = styled.section(({ theme }) => {
 
 		.hero-content {
 			justify-content: end;
-			padding-bottom: 2em; //!refactor
+			padding-bottom: ${t.p2em};
 			height: 100vh;
 
 			.LifterLogo {
@@ -164,16 +167,15 @@ const HeroSection = styled.section(({ theme }) => {
 				width: 50vw;
 				opacity: ${t.op70};
 				color: ${t.white.DEFAULT};
-				padding: 2em 0; //!refactor
+				padding: ${t.p2em} 0;
 				z-index: 1;
 			}
 
 			Button {
 				width: 80vw;
-				margin: 0.25em 0;
+				margin: ${t.p2em} 0;
 				z-index: 1;
 				max-width: 500px;
-
 			}
 		}
 	`;
@@ -186,21 +188,21 @@ const Button = styled.button(({ theme, ...props }) => {
 	return css`
 		border-radius: ${t.br50};
 		width: 100%;
-		padding: 0.8rem 2.5rem;
+		padding: 0.8rem 2.5rem; //! padding
 		background-color: ${props.black ? t.black.DEFAULT : "transparent"};
 		color: ${t.white.DEFAULT};
-		border: ${props.white && `2.5px solid ${t.white.DEFAULT}`}; //!
+		border: ${props.white && `${t.thick2} solid ${t.white.DEFAULT}`};
 	`;
 });
 
 // ================================= SECTION 2 ==========================================//
 
 // SEction 2 content
-const Section2 = styled.section(({ theme }) => {
+const Section2 = styled.section(({ theme, ...props }) => {
 	const t = destructureTheme(theme);
+	console.log(props);
 
 	return css`
-
 		.section2-content {
 			display: grid;
 			grid-template-columns: 20% 80%;
@@ -218,20 +220,12 @@ const Section2 = styled.section(({ theme }) => {
 				grid-area: img;
 				height: 80%;
 			}
-			.bg-black {
-				//!re factor black n gradient
+			div {
 				grid-area: img;
 				z-index: -1;
 				margin-top: 20vh;
 				height: 70vh;
-				background: black;
-			}
-			.bg-gradient {
-				grid-area: img;
-				z-index: -1;
-				margin-top: 20vh;
-				height: 70vh;
-				background: ${t.gradient};
+				background: ${props.className.gradient ? `${t.gradient}` : `${t.black.DEFAULT}`};
 			}
 
 			p {
