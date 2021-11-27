@@ -33,6 +33,7 @@ const theme = {
 			dark: "#4A295A",
 		},
 		gradient: "linear-gradient(to bottom, #497F9E, #BA76DA)",
+		gradient2: "linear-gradient(175deg, #BA76DA 0, rgba(105, 154, 182, 0.5) 60%, rgba(105, 154, 182, 0) 90%)",
 	},
 	font: {
 		lato: `"Lato", sans-serif`,

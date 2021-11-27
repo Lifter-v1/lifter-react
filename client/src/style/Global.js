@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 
 		html,
 		body {
-			overflow-x: hidden;
+			${'' /* overflow-x: hidden; */}
 			scroll-behavior: smooth;
 			font-family: ${lato};
 			color: ${black.DEFAULT};
@@ -45,7 +45,10 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 		}
 
 		section {
-			scroll-snap-align: center;
+			scroll-snap-align: start;
+			height: 100vh;
+			width: 100vw;
+
 		}
 
 		div {
@@ -54,11 +57,6 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 			justify-content: center;
 			align-items: center;
 			text-align: center;
-		}
-
-		section {
-			height: 100vh;
-			width: 100vw;
 		}
 
 		img {
