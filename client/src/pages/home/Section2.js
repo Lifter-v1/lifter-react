@@ -9,12 +9,13 @@ function Section2() {
 	const slidesSection2 = [
 		{ h2: "ELITE", p: "Exclusive community to motivate one another", img: slides1, className: "white" },
 		{ h2: "EASY", p: "Just swipe to find workout buddies", img: slides2, className: "black" },
-		{ h2: "TEAM", p: "Need some text here", img: slides3, className: "white" },
+		{ h2: "TEAM", p: "Find people of similar passion", img: slides3, className: "black" },
+		{ h2: "SWIPE", p: "Test it out below", img: null, className: "white" },
 	];
 	return (
 		<Styled>
-			{slidesSection2.map((each) => (
-				<section className={each.className}>
+			{slidesSection2.map((each, id) => (
+				<section key={id} className={each.className}>
 					<h2>{each.h2}</h2>
 					<img src={each.img} alt="img" />
 					<div>
@@ -39,6 +40,7 @@ const Styled = styled.section(({ theme, ...props }) => {
 		overflow-y: scroll;
 		overflow-x: hidden;
 		height: 100vh;
+		z-index: 2;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -51,6 +53,8 @@ const Styled = styled.section(({ theme, ...props }) => {
 			color: ${t.white.DEFAULT};
 		}
 
+	
+
 		section {
 			display: grid;
 			grid-template-areas:
@@ -58,10 +62,14 @@ const Styled = styled.section(({ theme, ...props }) => {
 				"two"
 				"three";
 			grid-template-rows: 2fr 2fr 1fr;
+			position: relative;
 
 			p {
 				grid-area: two;
+				color: ${t.white.DEFAULT};
 			}
+
+			
 
 			h2 {
 				grid-area: one;
@@ -71,6 +79,7 @@ const Styled = styled.section(({ theme, ...props }) => {
 				text-align: center;
 				position: sticky;
 				top: 0;
+
 			}
 
 			img {
@@ -93,17 +102,39 @@ const Styled = styled.section(({ theme, ...props }) => {
 				padding-bottom: 1vh;
 				align-self: end;
 				z-index: 2;
+
 				p {
 					width: 50vw;
+					font-size: 1.5em;
+					color: ${t.grey.DEFAULT};
 				}
 			}
 
 			&:last-child {
+				height: 50vh;
+
 				div {
 					background-color: ${t.white.DEFAULT};
 					color: ${t.black.DEFAULT};
 				}
+
+				h2 {
+					font-size: 6rem;
+				}
+
+				img {
+					display: none;
+				}
 			}
+		}
+		section::after {
+			position: absolute;
+			height: 70vh;
+			width: 100vw;
+			${'' /* background-color: ${t.black.DEFAULT}; */}
+			bottom: 0;
+			content: "";
+
 		}
 	`;
 });

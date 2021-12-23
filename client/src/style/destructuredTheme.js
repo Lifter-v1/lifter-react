@@ -6,6 +6,8 @@ export const destructuredTheme = ({
 	borderRadius: { br50 },
 	padding: { p2 },
 	thickness: { thick2 },
+	filter: {dropShadow1},
+
 }) => ({
 	black,
 	white,
@@ -23,4 +25,6 @@ export const destructuredTheme = ({
 	br50,
 	p2,
 	thick2,
+	dropShadow1,
+	
 });

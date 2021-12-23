@@ -26,7 +26,6 @@ export const Navbar = styled.div(({ theme, ...props }) => {
 			height: 35%;
 			width: 100%;
 			grid-area: logo;
-			fill: ${t.gradient};
 		}
 
 		h2 {

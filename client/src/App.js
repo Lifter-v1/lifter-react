@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Routes, Route } from "react-router-dom";
+// import { LazyMotion } from "framer-motion";
 import { GlobalStyles } from "./style/Global";
 import Home from "./pages/home";
 import Register from "./pages/register";
@@ -55,28 +56,33 @@ const theme = {
 	},
 	thickness: {
 		thick2: "2.5px",
-	}
+	},
+	filter: {
+		dropShadow1: "drop-shadow(2px 4px 6px #DDBEEC)",
+	} 
+
 };
 
 function App() {
 	const [isLogged, setIsLogged] = useState(false);
 
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyles />
-			<Routes>
-				{!isLogged ? (
-					<>
-						<Route path="/" element={<Home />} />
-						<Route path="/register/:id" element={<Register />} />
-					</>
-				) : (
-					<></>
-				)}
-			</Routes>
-		</ThemeProvider>
+
+			<ThemeProvider theme={theme}>
+				<GlobalStyles />
+				<Routes>
+					{!isLogged ? (
+						<>
+							<Route path="/" element={<Home />} />
+							<Route path="/register/:id" element={<Register />} />
+						</>
+					) : (
+						<></>
+					)}
+				</Routes>
+			</ThemeProvider>
+
 	);
 }
 
 export default App;
-

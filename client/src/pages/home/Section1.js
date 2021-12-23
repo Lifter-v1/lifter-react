@@ -1,19 +1,28 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { ReactComponent as LifterLogo } from "../../images/common/LifterLogo.svg";
 import { destructuredTheme, Button } from "../../style";
+import { Dumbbell } from "@styled-icons/fa-solid/Dumbbell";
 import homesection1 from "../../images/home/homesection1.mp4";
 
-function SectionHero() {
+// 1. Gradient to text: https://stackoverflow.com/questions/37831837/gradient-text-color
+
+function Section1() {
 	return (
 		<Styled>
-			{/* Add autoPlay */}
-			<video loop muted>
+			<video autoPlay loop muted>
 				<source src={homesection1} type="video/mp4" />
 			</video>
 			<div className="bg-filter" />
 			<div className="hero-content">
-				<LifterLogo color="#4B5358" className="LifterLogo" />
+				<LifterIcon>
+					<svg style={{ width: "100%", height: "100%", position: "absolute" }} aria-hidden="true" focusable="false">
+						<linearGradient id="my-cool-gradient" x2="1" y2="1">
+							<stop offset="0%" stop-color="#447799" />
+							<stop offset="50%" stop-color="#224488" />
+							<stop offset="100%" stop-color="#112266" />
+						</linearGradient>
+					</svg>
+				</LifterIcon>
 				<h1>Lifter</h1>
 				<p>Meet new and interesting workout partners</p>
 				<Button black>CREATE ACCOUNT</Button>
@@ -22,7 +31,7 @@ function SectionHero() {
 		</Styled>
 	);
 }
-export default SectionHero;
+export default Section1;
 
 // ===========================================================//
 
@@ -56,8 +65,8 @@ const Styled = styled.section(({ theme }) => {
 			padding-bottom: ${t.p2};
 			height: 100vh;
 
-			.LifterLogo {
-				width: 50vw;
+			.lifterLogo {
+				width: 20vh;
 				z-index: 1;
 			}
 
@@ -82,3 +91,10 @@ const Styled = styled.section(({ theme }) => {
 		}
 	`;
 });
+
+const LifterIcon = styled(Dumbbell)`
+	z-index: 10;
+	width: 25vh;
+	position: relative;
+	color: url(#my-cool-gradient);
+`;

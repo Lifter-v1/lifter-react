@@ -9,7 +9,6 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 		borderRadius: { br50 },
 		padding: { p2 },
 		thickness: { thick2 },
-		
 	} = theme;
 
 	return css`
@@ -30,17 +29,10 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 
 		html,
 		body {
-			${'' /* overflow-x: hidden; */}
 			scroll-behavior: smooth;
 			font-family: ${lato};
 			color: ${black.DEFAULT};
 			background-color: ${white.DEFAULT};
-
-		}
-
-	/* Allow snapping to section on scroll. Ensure parent container cotnains scrollSnapType: "y mandatory" */
-
-		.snapScroll {
 			scroll-snap-type: y mandatory;
 		}
 
@@ -48,7 +40,6 @@ export const GlobalStyles = createGlobalStyle(({ theme }) => {
 			scroll-snap-align: start;
 			height: 100vh;
 			width: 100vw;
-
 		}
 
 		div {
