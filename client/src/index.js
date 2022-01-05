@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
+/**
+ * Current dependencies for home page:
+ * 1. Animation: framer-motion
+ * 2. Carousel:  react-responsive-carousel
+ * 3. CSS: styled-components
+ * 4. Icons: styled-icons
+ * 
+ * Future suggestions:
+ * -- To replace styled-components + carousel + icons ==> Material-Ui
+ * -- apologies if its difficult to replace! Should have done proper commenting ....T.T All the bessstttee!
+ */
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>,
+	document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
