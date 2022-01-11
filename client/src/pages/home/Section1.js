@@ -1,8 +1,9 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { destructuredTheme, Button } from "../../style";
-import { Dumbbell } from "@styled-icons/fa-solid/Dumbbell";
-import homesection1 from "../../images/home/homesection1.mp4";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { destructuredTheme, Button } from '../../style';
+import { Dumbbell } from '@styled-icons/fa-solid/Dumbbell';
+import homesection1 from '../../images/home/homesection1.mp4';
+import { Outlet, Link } from 'react-router-dom';
 
 // 1. Gradient to text: https://stackoverflow.com/questions/37831837/gradient-text-color
 
@@ -15,7 +16,11 @@ function Section1() {
 			<div className="bg-filter" />
 			<div className="hero-content">
 				<LifterIcon>
-					<svg style={{ width: "100%", height: "100%", position: "absolute" }} aria-hidden="true" focusable="false">
+					<svg
+						style={{ width: '100%', height: '100%', position: 'absolute' }}
+						aria-hidden="true"
+						focusable="false"
+					>
 						<linearGradient id="my-cool-gradient" x2="1" y2="1">
 							<stop offset="0%" stop-color="#447799" />
 							<stop offset="50%" stop-color="#224488" />
@@ -25,8 +30,13 @@ function Section1() {
 				</LifterIcon>
 				<h1>Lifter</h1>
 				<p>Meet new and interesting workout partners</p>
-				<Button black>CREATE ACCOUNT</Button>
-				<Button white>LOGIN</Button>
+
+				<Link className="button" to="/register">
+					<Button black>Register</Button>
+				</Link>
+				<Link className="button" to="/login">
+					<Button white>LOGIN</Button>
+				</Link>
 			</div>
 		</Styled>
 	);
@@ -83,6 +93,13 @@ const Styled = styled.section(({ theme }) => {
 			}
 
 			Button {
+				width: 80vw;
+				margin-bottom: 1em;
+				z-index: 1;
+				max-width: 500px;
+			}
+
+			.button {
 				width: 80vw;
 				margin-bottom: 1em;
 				z-index: 1;
